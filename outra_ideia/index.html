@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria Luiza | Meu Portfólio</title>
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <style>
+        /* PHOTO CARDS */
+
+        .photocard-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 30px;
+        }
+
+        .photo-card {
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 25px;
+
+            height: 420px;
+
+            cursor: pointer;
+
+            box-shadow: 0 10px 30px rgba(255, 122, 162, 0.25);
+
+            transition: 0.5s;
+        }
+
+        .photo-card img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.6s;
+        }
+
+        .photo-card:hover img {
+
+            transform: scale(1.1);
+        }
+
+        .overlay {
+
+            position: absolute;
+
+            bottom: 0;
+
+            width: 100%;
+
+            padding: 30px;
+
+            background: linear-gradient(transparent,
+                    rgba(0, 0, 0, 0.75));
+
+            color: white;
+
+            transform: translateY(35%);
+
+            transition: 0.5s;
+        }
+
+        .photo-card:hover .overlay {
+
+            transform: translateY(0);
+        }
+
+        .overlay h3 {
+
+            font-size: 1.6rem;
+
+            margin-bottom: 10px;
+        }
+
+        .overlay p {
+
+            line-height: 1.6;
+
+            opacity: 0;
+
+            transition: 0.5s;
+        }
+
+        .photo-card:hover .overlay p {
+
+            opacity: 1;
+        }
+
+        :root {
+            --pink: #ff7aa2;
+            --pink-light: #ffd6e5;
+            --white: #ffffff;
+            --text: #5b4a52;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            font-family: 'Segoe UI', sans-serif;
+            color: var(--text);
+            overflow-x: hidden;
+
+            background: linear-gradient(-45deg,
+                    #fff0f5,
+                    #ffe0eb,
+                    #fff7fa,
+                    #ffd6e7);
+
+            background-size: 400% 400%;
+
+            animation: gradientBG 12s ease infinite;
+        }
+
+        @keyframes gradientBG {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* PARTICLES */
+
+        #particles-js {
+
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        /* NAV */
+
+        nav {
+
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 8%;
+
+            background: rgba(255, 255, 255, 0.2);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .logo {
+
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--pink);
+        }
+
+        nav ul {
+
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+
+            color: var(--pink);
+        }
+
+        /* HERO */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 70px;
+
+            padding: 100px 10%;
+        }
+
+        .hero-text {
+
+            max-width: 550px;
+        }
+
+        .hero h1 {
+
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero span {
+
+            color: #ff5f95;
+
+            text-shadow:
+                0 0 5px #ff9fbc,
+                0 0 10px #ff9fbc,
+                0 0 20px #ff9fbc;
+        }
+
+        .hero p {
+
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+
+            background: var(--pink);
+            color: white;
+            text-decoration: none;
+
+            padding: 15px 28px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            box-shadow: 0 0 15px rgba(255, 122, 162, 0.5);
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+
+            transform: scale(1.05);
+
+            box-shadow: 0 0 30px rgba(255, 122, 162, 0.9);
+        }
+
+        .hero-image img {
+
+            width: 340px;
+            height: 340px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 6px solid var(--pink);
+
+            box-shadow: 0 10px 30px rgba(255, 122, 162, 0.3);
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* SECTIONS */
+
+        section {
+
+            padding: 100px 10%;
+        }
+
+        h2 {
+
+            text-align: center;
+            margin-bottom: 40px;
+
+            color: var(--pink);
+
+            font-size: 2.2rem;
+        }
+
+        /* CARD */
+
+        .card {
+
+            background: rgba(255, 255, 255, 0.25);
+
+            backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+            padding: 35px;
+
+            border-radius: 25px;
+
+            line-height: 1.8;
+
+            transition: 0.4s;
+        }
+
+        .card:hover {
+
+            transform: translateY(-10px) scale(1.02);
+
+            box-shadow: 0 15px 35px rgba(255, 122, 162, 0.3);
+        }
+
+        blockquote {
+
+            margin-top: 20px;
+
+            font-style: italic;
+
+            color: var(--pink);
+
+            font-size: 1.1rem;
+        }
+
+        /* TIMELINE */
+
+        .timeline {
+
+            position: relative;
+        }
+
+        .timeline-item {
+
+            display: flex;
+            gap: 20px;
+
+            margin-bottom: 30px;
+        }
+
+        .circle {
+
+            width: 20px;
+            height: 20px;
+
+            border-radius: 50%;
+
+            background: var(--pink);
+
+            margin-top: 10px;
+        }
+
+        .content {
+
+            flex: 1;
+
+            background: rgba(255, 255, 255, 0.25);
+
+            backdrop-filter: blur(10px);
+
+            padding: 25px;
+
+            border-radius: 20px;
+        }
+
+        /* GRID */
+
+        .cards-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .mini-card {
+
+            background: rgba(255, 255, 255, 0.25);
+
+            backdrop-filter: blur(10px);
+
+            padding: 30px;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            transition: 0.4s;
+        }
+
+        .mini-card:hover {
+
+            transform: translateY(-10px) scale(1.03);
+
+            box-shadow: 0 15px 35px rgba(255, 122, 162, 0.3);
+        }
+
+        .mini-card i {
+
+            font-size: 2.5rem;
+
+            color: var(--pink);
+
+            margin-bottom: 20px;
+        }
+
+        /* IMG */
+
+        .section-img {
+
+            width: 100%;
+
+            border-radius: 25px;
+
+            margin-top: 30px;
+
+            box-shadow: 0 10px 30px rgba(255, 122, 162, 0.2);
+        }
+
+        /* GOALS */
+
+        .goals {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .goal-card {
+
+            background: rgba(255, 255, 255, 0.25);
+
+            backdrop-filter: blur(10px);
+
+            padding: 30px;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            transition: 0.4s;
+        }
+
+        .goal-card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 15px 35px rgba(255, 122, 162, 0.3);
+        }
+
+        /* FOOTER */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            background: rgba(255, 255, 255, 0.3);
+
+            backdrop-filter: blur(10px);
+        }
+
+        /* RESPONSIVO */
+
+        @media(max-width:900px) {
+
+            .hero {
+
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            nav ul {
+
+                display: none;
+            }
+
+            .hero h1 {
+
+                font-size: 2.5rem;
+            }
+
+            .hero-image img {
+
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PARTICLES -->
+    <div id="particles-js"></div>
+
+    <!-- NAV -->
+    <nav>
+
+        <div class="logo">🌸 Maria Luiza</div>
+
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#trajetoria">Trajetória</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#objetivos">Objetivos</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-text" data-aos="fade-right">
+
+            <h1 id="typing"></h1>
+
+            <p>
+                Uma pessoa tranquila, introspectiva e apaixonada por
+                tecnologia, música, filmes e momentos simples da vida ✨
+            </p>
+
+            <a href="#sobre" class="btn">
+                Conheça minha história
+            </a>
+
+        </div>
+
+        <div class="hero-image" data-aos="fade-left">
+
+            <img src="eu.jpeg" alt="Maria Luiza">
+
+        </div>
+
+    </section>
+
+    <!-- SOBRE -->
+
+    <section id="sobre" data-aos="fade-up">
+
+        <h2>🙋‍♀️ Quem Sou Eu</h2>
+
+        <div class="card">
+
+            <p>
+
+                Meu nome é Maria Luiza, moro em Marília e estudo
+                no 3º ano A Tec.
+
+                Sou uma pessoa calma, observadora e gosto de
+                ambientes tranquilos. Adoro ouvir música,
+                assistir filmes, ler e descobrir coisas novas.
+
+            </p>
+
+            <blockquote>
+                “A paz vem de dentro de você mesmo.”
+            </blockquote>
+
+        </div>
+
+    </section>
+
+    <!-- TRAJETÓRIA -->
+
+    <section id="trajetoria" data-aos="zoom-in">
+
+        <h2>🎓 Minha Trajetória</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="circle"></div>
+
+                <div class="content">
+
+                    <h3>Curso Técnico</h3>
+
+                    <p>
+                        Atualmente curso Desenvolvimento de Sistemas,
+                        aprendendo HTML, CSS, JavaScript e criação de sites.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="circle"></div>
+
+                <div class="content">
+
+                    <h3>Projeto PIBIC</h3>
+
+                    <p>
+                        Participação em projetos acadêmicos e tecnológicos.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <img src="curso.jpeg" class="section-img">
+
+    </section>
+
+    <!-- HOBBIES -->
+    <!-- HOBBIES PHOTO CARDS -->
+
+    <section id="hobbies" data-aos="fade-up">
+
+        <h2>🎀 Meus Gostos</h2>
+
+        <div class="photocard-grid">
+
+            <!-- CARD MUSICA -->
+
+            <div class="photo-card">
+
+                <img src="leitura.jpeg" alt="Música">
+
+                <div class="overlay">
+
+                    <h3>🎵 Leitura</h3>
+
+                    <p>
+                        Leitor assíduo, apaixonado por boas histórias e ideias que expandem horizontes. Entre páginas e
+                        cafés, encontra inspiração para aprender, refletir e evoluir todos os dias.
+                        ✨
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- CARD FILMES -->
+
+            <div class="photo-card">
+
+                <img src="p.jpeg" alt="Filmes">
+
+                <div class="overlay">
+
+                    <h3>👩‍💻 Programaçao</h3>
+
+                    <p>
+                        Programador movido por curiosidade, café e algumas linhas de código. Sempre aprendendo, criando
+                        soluções e transformando ideias em projetos reais.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- CARD ROTINA -->
+
+            <div class="photo-card">
+
+                <img src="d.jpeg" alt="Rotina">
+
+                <div class="overlay">
+
+                    <h3>💤 Dormir</h3>
+
+                    <p>
+                        Especialista em dormir cedo… ou tarde demais. Profissional em cochilos estratégicos e fã oficial
+                        de qualquer lugar confortável para descansar.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- OBJETIVOS -->
+
+    <section id="objetivos" data-aos="fade-up">
+
+        <h2>🚀 Sonhos & Objetivos</h2>
+
+        <div class="goals">
+
+            <div class="goal-card">
+
+                <h3>🌍 Viajar</h3>
+
+                <p>
+                    Conhecer outros países e culturas.
+                </p>
+
+            </div>
+
+            <div class="goal-card">
+
+                <h3>🎓 Faculdade</h3>
+
+                <p>
+                    Entrar em uma faculdade na área de humanas.
+                </p>
+
+            </div>
+
+            <div class="goal-card">
+
+                <h3>✨ Futuro</h3>
+
+                <p>
+                    Construir uma vida feliz e tranquila.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            ✨ Criado por Maria Luiza | 2026
+        </p>
+
+    </footer>
+
+    <!-- AOS -->
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+
+        AOS.init({
+
+            duration: 1200,
+            once: true
+
+        });
+
+        // EFEITO DIGITAÇÃO
+
+        const text = "Olá, eu sou Maria Luiza ✨";
+
+        const typing = document.getElementById("typing");
+
+        let index = 0;
+
+        function escrever() {
+
+            if (index < text.length) {
+
+                typing.innerHTML += text.charAt(index);
+
+                index++;
+
+                setTimeout(escrever, 90);
+            }
+        }
+
+        escrever();
+
+    </script>
+
+    <!-- PARTICLES -->
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+
+        particlesJS("particles-js", {
+
+            particles: {
+
+                number: {
+                    value: 45
+                },
+
+                color: {
+                    value: "#ff7aa2"
+                },
+
+                shape: {
+                    type: "circle"
+                },
+
+                opacity: {
+                    value: 0.3
+                },
+
+                size: {
+                    value: 4
+                },
+
+                move: {
+                    enable: true,
+                    speed: 2
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
