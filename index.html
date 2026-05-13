@@ -15,6 +15,89 @@
     <style>
         /* PHOTO CARDS */
 
+
+        .goal-card {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background: linear-gradient(135deg, #ffb6c1, #ff7aa2);
+
+            color: rgb(0, 0, 0);
+
+            padding: 30px;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            min-height: 280px;
+
+            box-shadow: 0 10px 25px rgba(255, 122, 162, 0.35);
+
+            transition: 0.5s;
+
+        }
+
+        .goal-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -50%;
+
+            left: -50%;
+
+            width: 200%;
+
+            height: 200%;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            transform: rotate(25deg);
+
+        }
+
+        .goal-card:hover {
+
+            transform: translateY(-12px) scale(1.04);
+
+            box-shadow: 0 20px 40px rgba(255, 122, 162, 0.5);
+
+        }
+
+        .goal-card img {
+
+            width: 100%;
+
+            height: 140px;
+
+            object-fit: cover;
+
+            border-radius: 18px;
+
+            margin-bottom: 18px;
+
+        }
+
+        .goal-card h3 {
+
+            font-size: 1.5rem;
+
+            margin-bottom: 10px;
+
+        }
+
+        .goal-card p {
+
+            line-height: 1.6;
+
+            font-size: 1rem;
+
+        }
+
         .photocard-grid {
 
             display: grid;
@@ -542,7 +625,7 @@
     <!-- NAV -->
     <nav>
 
-        <div class="logo">🌸 Maria Luiza</div>
+        <div class="logo">🌸 Meu Site</div>
 
         <ul>
             <li><a href="#sobre">Sobre</a></li>
@@ -562,8 +645,7 @@
             <h1 id="typing"></h1>
 
             <p>
-                Uma pessoa tranquila, introspectiva e apaixonada por
-                tecnologia, música, filmes e momentos simples da vida ✨
+                aqui faço uma breve apresentação sobre mim!
             </p>
 
             <a href="#sobre" class="btn">
@@ -574,7 +656,7 @@
 
         <div class="hero-image" data-aos="fade-left">
 
-            <img src="eu.jpeg" alt="Maria Luiza">
+            <img src="eumsm.jpeg" alt="Maria Luiza">
 
         </div>
 
@@ -584,13 +666,13 @@
 
     <section id="sobre" data-aos="fade-up">
 
-        <h2>🙋‍♀️ Quem Sou Eu</h2>
+        <h2>Quem sou eu?</h2>
 
         <div class="card">
 
             <p>
 
-                Meu nome é Maria Luiza, moro em Marília e estudo
+                Meu nome é Maria Luiza, nasci e fui criada em Marília, estou
                 no 3º ano A Tec.
 
                 Sou uma pessoa calma, observadora e gosto de
@@ -600,7 +682,7 @@
             </p>
 
             <blockquote>
-                “A paz vem de dentro de você mesmo.”
+                "a paz vem de dentro de você mesmo. não a procure à sua volta"
             </blockquote>
 
         </div>
@@ -650,7 +732,7 @@
 
         </div>
 
-        <img src="curso.jpeg" class="section-img">
+        <img src="estudando.jpeg" class="section-img">
 
     </section>
 
@@ -674,9 +756,8 @@
                     <h3>🎵 Leitura</h3>
 
                     <p>
-                        Leitor assíduo, apaixonado por boas histórias e ideias que expandem horizontes. Entre páginas e
-                        cafés, encontra inspiração para aprender, refletir e evoluir todos os dias.
-                        ✨
+                        
+                         gosto de ler BIOGRAFIAS, AUTOAJUDA e livros que deescrevam sentimentos.
                     </p>
 
                 </div>
@@ -687,35 +768,32 @@
 
             <div class="photo-card">
 
-                <img src="p.jpeg" alt="Filmes">
+                <img src="snoop.jpeg" alt="Filmes">
 
                 <div class="overlay">
 
-                    <h3>👩‍💻 Programaçao</h3>
+                    <h3>escutar música</h3>
 
                     <p>
-                        Programador movido por curiosidade, café e algumas linhas de código. Sempre aprendendo, criando
-                        soluções e transformando ideias em projetos reais.
+                        curto POP, MPB,ROCK e MÚSICA LATINA.
+                        minha cantora favorita é a Kali Uchis
                     </p>
 
                 </div>
 
             </div>
-
             <!-- CARD ROTINA -->
 
             <div class="photo-card">
 
-                <img src="d.jpeg" alt="Rotina">
+                <img src="movie.jpeg" alt="Rotina">
 
                 <div class="overlay">
 
-                    <h3>💤 Dormir</h3>
+                    <h3>💤 assistir filme</h3>
 
                     <p>
-                        Especialista em dormir cedo… ou tarde demais. Profissional em cochilos estratégicos e fã oficial
-                        de qualquer lugar confortável para descansar.
-
+                        meus filmes favoritos são romance anos 2000!
                     </p>
 
                 </div>
@@ -729,36 +807,45 @@
 
     <section id="objetivos" data-aos="fade-up">
 
-        <h2>🚀 Sonhos & Objetivos</h2>
+        <h2>🎁 Sonhos & Objetivos</h2>
 
         <div class="goals">
 
             <div class="goal-card">
 
+                <img src="viajar.jpeg" alt="Viajar">
+
                 <h3>🌍 Viajar</h3>
 
                 <p>
-                    Conhecer outros países e culturas.
+                    Quero conhecer outros países,
+                    culturas e viver novas experiências.
                 </p>
 
             </div>
 
             <div class="goal-card">
+
+                <img src="faculdade.jpeg" alt="Faculdade">
 
                 <h3>🎓 Faculdade</h3>
 
                 <p>
-                    Entrar em uma faculdade na área de humanas.
+                    Entrar em uma faculdade na área
+                    de humanas e crescer profissionalmente.
                 </p>
 
             </div>
 
             <div class="goal-card">
 
+                <img src="diploma.jpeg" alt="Futuro">
+
                 <h3>✨ Futuro</h3>
 
                 <p>
-                    Construir uma vida feliz e tranquila.
+                    Construir uma vida feliz,
+                    tranquila e cheia de realizações.
                 </p>
 
             </div>
@@ -792,7 +879,7 @@
 
         // EFEITO DIGITAÇÃO
 
-        const text = "Olá, eu sou Maria Luiza ✨";
+        const text = "Olá, Bem- Vindo ao meu site✨";
 
         const typing = document.getElementById("typing");
 
